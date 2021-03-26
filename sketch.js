@@ -28,7 +28,7 @@ function setup(){
     cat = createSprite(800, 440);
     cat.addAnimation("chase", catanim);
     cat.scale = 0.2;
-    cat.velocityX = -5;
+    
 
     console.log(cat.width , mouse.width);
     
@@ -37,10 +37,22 @@ function setup(){
 function draw() {
 
     background("cyan");
+
+    if (keyDown("space")) {
+
+        cat.velocityX = -5;
+
+    }
     
-    if (isTouching(cat,mouse)) {
+    if (cat.x - mouse.x < (cat.width - mouse.width) / 2) {
 
         cat.velocityX = 0;
+        cat.addAnimation("caught", catanim2);
+        cat.x = 400;
+        cat.changeAnimation("caught", catanim2);
+
+        mouse.addAnimation("caught", mouseanim2);
+        mouse.changeAnimation("caught", mouseanim2);
 
     }
 

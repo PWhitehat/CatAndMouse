@@ -194,7 +194,7 @@ p5.prototype._ontouchstart = function(e) {
     return;
   }
   var validTouch;
-  for (var i = 0; i < e.touches.length; i++) {
+  for (var i = 0; i < i.touches.length; i++) {
     validTouch = getTouchInfo(this._curElement.elt, e, i);
     if (validTouch) {
       break;
